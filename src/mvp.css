@@ -334,7 +334,6 @@ form {
     min-width: var(--width-card);
     padding: 1.5rem;
     text-align: var(--justify-normal);
-    display: flex;
     flex-direction: column;
 }
 

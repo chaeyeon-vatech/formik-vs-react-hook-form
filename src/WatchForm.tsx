@@ -2,7 +2,6 @@ import {useForm} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import React from "react";
-import useRenderCount from "@hooks/render-count";
 
 const schema = yup
     .object()
@@ -13,10 +12,8 @@ const schema = yup
     .required();
 
 export const WatchForm: React.FC = () => {
-    const count = useRenderCount()
 
-
-    const {register, handleSubmit, watch, getValues, formState} = useForm({
+    const {register, handleSubmit, watch} = useForm({
         resolver: yupResolver(schema),
     });
 
@@ -32,11 +29,11 @@ export const WatchForm: React.FC = () => {
             </header>
             <label htmlFor="id">ID : {watchID}</label>
             <input {...register('id')} placeholder="아이디를 입력하세요."
-                   style={{color: register('id') ? "red" : "unset"}}/>
+                   style={{color: register('id') ? "red" : "unset", width: "100%"}}/>
             <label htmlFor="pw">Password</label>
 
             <input type="string" {...register('pw')} placeholder="비밀번호를 입력하세요."
-                   style={{color: watchPW ? "red" : "unset"}}/>
+                   style={{color: watchPW ? "red" : "unset", width: "70%"}}/>
             <button type="submit">Submit</button>
         </form>
     );
